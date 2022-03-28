@@ -5,11 +5,6 @@ import (
 	"fmt"
 )
 
-// b "basic/basic"
-// b "myapp/utils/do"
-
-// "github.com/fatih/color"
-
 func main() {
 	// array of names
 	items := [2]string{
