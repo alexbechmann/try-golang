@@ -5,5 +5,5 @@ import (
 )
 
 func DoSomething() {
-	fmt.Print("Do something...")
+	fmt.Println("Doing something...")
 }
