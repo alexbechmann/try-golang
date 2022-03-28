@@ -6,6 +6,7 @@ package graph
 import (
 	"context"
 	"fmt"
+
 	"go-playground/graph/generated"
 	"go-playground/graph/model"
 )
@@ -19,7 +20,7 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 }
 
 func (r *queryResolver) Hi(ctx context.Context) (string, error) {
-	panic(fmt.Errorf("not implemented"))
+	return "hi from server", nil
 }
 
 // Mutation returns generated.MutationResolver implementation.
@@ -28,5 +29,7 @@ func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResol
 // Query returns generated.QueryResolver implementation.
 func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+type (
+	mutationResolver struct{ *Resolver }
+	queryResolver    struct{ *Resolver }
+)
