@@ -1,2 +1,2 @@
 watch:
-	npx nodemon --exec "go run ./main.go" --ext go
+	nodemon --exec "go run ./main.go" --ext go

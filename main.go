@@ -1,8 +1,9 @@
 package main
 
 import (
-	"do"
 	"fmt"
+
+	"go-playground/do"
 )
 
 func main() {
