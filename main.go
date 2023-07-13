@@ -5,19 +5,22 @@ import (
 	"time"
 
 	"try-go/do"
+	"try-go/geo"
 )
 
 func main() {
-	// array of names
 	items := [2]string{
 		"a", "b",
 	}
 
 	for index, item := range items {
-		message := fmt.Sprintf(fmt.Sprint(index), ": ", item)
-		fmt.Println(message)
+		fmt.Println(fmt.Sprint(index), ": ", item)
 	}
 
 	do.DoSomething()
 	fmt.Println("The time is: ", time.Now().Round(0))
+
+	grid := geo.ExampleFromGeo()
+
+	fmt.Println("The grid is: ", grid)
 }
