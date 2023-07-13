@@ -1,4 +1,4 @@
-module github.com/alexbechmann/go
+module try-go
 
 go 1.18
 

@@ -1,8 +1,10 @@
 package main
 
 import (
-	"do"
 	"fmt"
+	"time"
+
+	"try-go/do"
 )
 
 func main() {
@@ -12,9 +14,10 @@ func main() {
 	}
 
 	for index, item := range items {
-		message := fmt.Sprintf("%d: %s", index, item)
+		message := fmt.Sprintf(fmt.Sprint(index), ": ", item)
 		fmt.Println(message)
 	}
 
 	do.DoSomething()
+	fmt.Println("The time is: ", time.Now().Round(0))
 }
