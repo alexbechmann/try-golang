@@ -6,9 +6,17 @@ import (
 	"github.com/uber/h3-go/v4"
 )
 
-func ExampleFromGeo() string {
-	latLng := h3.NewLatLng(37.775938728915946, -122.41795063018799)
+type Args struct {
+	Lat float64
+	Lng float64
+}
+
+func ExampleFromGeo(args Args) string {
+	latLng := h3.NewLatLng(args.Lat, args.Lng)
 	resolution := 9 // between 0 (biggest cell) and 15 (smallest cell)
+
+	fmt.Print("Using lat ", latLng.Lat)
+	fmt.Println(" and lng ", latLng.Lng)
 
 	cell := h3.LatLngToCell(latLng, resolution)
 	fmt.Printf("%#x\n", cell)
