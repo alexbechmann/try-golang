@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/alexbechmann/apps/producer/do"
+	"github.com/alexbechmann/apps/producer/kafka_utils"
 )
 
 func main() {
@@ -19,4 +20,6 @@ func main() {
 	fmt.Println("The time is: ", time.Now().Round(0))
 
 	do.DoSomething2()
+
+	kafka_utils.StartProducing()
 }
