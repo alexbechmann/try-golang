@@ -26,6 +26,9 @@ func StartProducing() {
 		kafka.Message{Value: []byte("two!")},
 		kafka.Message{Value: []byte("three!")},
 	)
+
+	fmt.Printf("Messages written. Err: %v", err)
+
 	if err != nil {
 		log.Fatal("failed to write messages:", err)
 	}

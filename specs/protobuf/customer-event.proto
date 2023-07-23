@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package example.customer;
+option go_package = "github.com/alexbechmann/libs/utils/generated";
+
+import "purchase.proto";
+import "page-view.proto";  
+
+message CustomerCloudEvent {  
+  oneof payload {   
+    PurchaseCloudEvent purchase = 5;
+    PageViewCloudEvent page_view = 6;
+  }
+}

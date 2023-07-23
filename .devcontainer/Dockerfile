@@ -35,6 +35,10 @@ RUN npm i -g foreman
 
 RUN apt-get install bison mercurial -y
 
+# Protoc
+COPY ./install-protoc.sh ./
+RUN bash ./install-protoc.sh
+
 USER vscode
 
 # ENV GVM_ROOT /home/vscode/.gvm
