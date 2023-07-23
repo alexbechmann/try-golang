@@ -7,7 +7,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/alexbechmann/libs/utils/generated"
+	"github.com/alexbechmann/try-golang/libs/utils/generated"
+
 	"github.com/google/uuid"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/timestamppb"

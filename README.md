@@ -17,6 +17,7 @@
 ## Development
 
 ```bash
+make codegen
 nf start
 ```
 

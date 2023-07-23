@@ -1,4 +1,4 @@
-module github.com/alexbechmann/libs/utils
+module github.com/alexbechmann/try-golang/libs/utils
 
 go 1.20
 

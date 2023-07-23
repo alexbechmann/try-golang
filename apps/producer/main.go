@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/alexbechmann/apps/producer/do"
-	"github.com/alexbechmann/apps/producer/kafka_utils"
+	"github.com/alexbechmann/try-golang/apps/producer/do"
+	"github.com/alexbechmann/try-golang/apps/producer/kafka_utils"
 )
 
 func main() {

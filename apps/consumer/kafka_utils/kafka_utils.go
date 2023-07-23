@@ -7,7 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/alexbechmann/libs/utils/generated"
+	"github.com/alexbechmann/try-golang/libs/utils/generated"
+
 	kafka "github.com/segmentio/kafka-go"
 	"google.golang.org/protobuf/proto"
 )

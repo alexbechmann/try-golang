@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/alexbechmann/libs/utils/generated"
+	"github.com/alexbechmann/try-golang/libs/utils/generated"
+
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
