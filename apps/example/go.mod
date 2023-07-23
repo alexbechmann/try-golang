@@ -1,4 +1,4 @@
-module try-go
+module github.com/alexbechmann/apps/example
 
 go 1.20
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"try-go/do"
-	"try-go/geo"
+	"github.com/alexbechmann/apps/example/do"
+	"github.com/alexbechmann/apps/example/geo"
 )
 
 func main() {
