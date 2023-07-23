@@ -24,12 +24,13 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "esbenp.prettier-vscode",
-        "vscode-icons-team.vscode-icons",
-        "github.copilot",
-        "ms-vsliveshare.vsliveshare",
-        "golang.Go"
-      ]
+		"esbenp.prettier-vscode",
+		"vscode-icons-team.vscode-icons",
+		"github.copilot",
+		"ms-vsliveshare.vsliveshare",
+		"golang.Go",
+		"dannymcgee.vscode-go-grammar"
+	]
     }
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
