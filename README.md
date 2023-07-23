@@ -21,6 +21,12 @@ make codegen
 nf start
 ```
 
+## Test
+
+```bash
+make test
+```
+
 ## Links
 
 - <https://github.com/golang/tools/blob/master/gopls/doc/workspace.md>
