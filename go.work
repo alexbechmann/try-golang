@@ -1,0 +1,6 @@
+go 1.20
+
+use ./apps/example
+use ./apps/producer
+use ./apps/consumer
+use ./libs/utils
