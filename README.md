@@ -31,3 +31,5 @@ make test
 
 - <https://github.com/golang/tools/blob/master/gopls/doc/workspace.md>
 - <https://protobuf.dev/reference/go/go-generated/>
+- <https://github.com/golang-standards/project-layout>
+- <https://go.dev/talks/2014/names.slide#1>
