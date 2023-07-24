@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/alexbechmann/try-golang/apps/consumer/kafka_utils"
-	"github.com/alexbechmann/try-golang/apps/producer/do"
+	"github.com/alexbechmann/try-golang/libs/utils"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 
 	fmt.Println("The time is: ", time.Now().Round(0))
 
-	do.DoSomething2()
+	utils.DoSomething()
 
 	kafka_utils.StartConsuming()
 }

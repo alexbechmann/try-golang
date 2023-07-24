@@ -8,8 +8,8 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
-func Something() {
-	fmt.Println("Something")
+func DoSomething() {
+	fmt.Println("Do Something")
 
 	purchase := generated.CustomerCloudEvent{
 		Payload: &generated.CustomerCloudEvent_Purchase{
