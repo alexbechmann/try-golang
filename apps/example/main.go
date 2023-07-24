@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/alexbechmann/try-golang/apps/example/do"
-	"github.com/alexbechmann/try-golang/apps/example/geo"
+	"try-golang/example/do"
+	"try-golang/example/geo"
 )
 
 func main() {

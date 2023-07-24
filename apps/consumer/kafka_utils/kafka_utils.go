@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/alexbechmann/try-golang/libs/utils/generated"
+	"try-golang/utils/generated"
 
 	kafka "github.com/segmentio/kafka-go"
 	"google.golang.org/protobuf/proto"
@@ -31,10 +31,10 @@ func StartConsuming() {
 	fmt.Println("Start consuming... ")
 	for {
 		m, err := reader.ReadMessage(context.Background())
-		handleEvent(m.Value)
 		if err != nil {
 			log.Fatalln(err)
 		}
+		handleEvent(m.Value)
 	}
 }
 

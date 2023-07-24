@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/alexbechmann/try-golang/libs/utils/generated"
+	"try-golang/utils/generated"
 
 	"github.com/google/uuid"
 	"google.golang.org/protobuf/proto"

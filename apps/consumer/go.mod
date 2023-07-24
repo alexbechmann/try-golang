@@ -1,4 +1,4 @@
-module github.com/alexbechmann/try-golang/apps/consumer
+module try-golang/consumer
 
 go 1.20
 

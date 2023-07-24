@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/alexbechmann/try-golang/apps/producer/do"
-	"github.com/alexbechmann/try-golang/apps/producer/kafka_utils"
-	"github.com/alexbechmann/try-golang/libs/utils"
+	"try-golang/producer/do"
+	"try-golang/producer/kafka_utils"
+	"try-golang/utils"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module github.com/alexbechmann/try-golang/apps/producer
+module try-golang/producer
 
 go 1.20
 

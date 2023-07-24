@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/alexbechmann/try-golang/libs/utils/generated"
+	"try-golang/utils/generated"
 
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
