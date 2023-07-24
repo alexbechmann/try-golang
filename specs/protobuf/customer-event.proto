@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package example.customer;
-option go_package = "try-golang/utils/generated";
+option go_package = "try-golang/utils/protos";
 
 import "purchase.proto";
 import "page-view.proto";  

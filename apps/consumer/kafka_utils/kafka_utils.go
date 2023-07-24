@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"try-golang/utils/generated"
+	"try-golang/utils/protos"
 
 	kafka "github.com/segmentio/kafka-go"
 	"google.golang.org/protobuf/proto"
@@ -39,19 +39,19 @@ func StartConsuming() {
 }
 
 func handleEvent(bytes []byte) {
-	var customerEvent generated.CustomerCloudEvent
+	var customerEvent protos.CustomerCloudEvent
 	proto.Unmarshal(bytes, &customerEvent)
 
 	fmt.Printf("Received message: %v\n", customerEvent.Payload)
 	switch customerEvent.Payload.(type) {
-	case *generated.CustomerCloudEvent_Purchase:
+	case *protos.CustomerCloudEvent_Purchase:
 		{
 			purchase := customerEvent.GetPurchase()
 			fmt.Printf("Received purchase message with id: %v\n", purchase.Id)
 			break
 		}
 
-	case *generated.CustomerCloudEvent_PageView:
+	case *protos.CustomerCloudEvent_PageView:
 		{
 			pageView := customerEvent.GetPageView()
 			fmt.Printf("Received page view message with id: %v\n", pageView.Id)

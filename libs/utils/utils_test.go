@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"try-golang/utils/generated"
+	"try-golang/utils/protos"
 
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
@@ -12,15 +12,15 @@ import (
 func TestDoSomething(t *testing.T) {
 	fmt.Println("Something")
 
-	purchase := generated.CustomerCloudEvent{
-		Payload: &generated.CustomerCloudEvent_Purchase{
-			Purchase: &generated.PurchaseCloudEvent{
+	purchase := protos.CustomerCloudEvent{
+		Payload: &protos.CustomerCloudEvent_Purchase{
+			Purchase: &protos.PurchaseCloudEvent{
 				Id:          "id1",
 				Source:      "lib",
 				SpecVersion: "1.0",
-				Type:        generated.PurchaseCloudEvent_EXAMPLE_CUSTOMER_PURCHASE,
+				Type:        protos.PurchaseCloudEvent_EXAMPLE_CUSTOMER_PURCHASE,
 				Time:        timestamppb.Now(),
-				Data: &generated.PurchaseCloudEvent_Data{
+				Data: &protos.PurchaseCloudEvent_Data{
 					CustomerId: "customer1",
 					Amount:     1.0,
 				},

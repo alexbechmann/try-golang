@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"try-golang/utils/generated"
+	"try-golang/utils/protos"
 
 	"github.com/google/uuid"
 	"google.golang.org/protobuf/proto"
@@ -30,15 +30,15 @@ func StartProducing() {
 	defer conn.Close()
 
 	for {
-		purchase := generated.CustomerCloudEvent{
-			Payload: &generated.CustomerCloudEvent_Purchase{
-				Purchase: &generated.PurchaseCloudEvent{
+		purchase := protos.CustomerCloudEvent{
+			Payload: &protos.CustomerCloudEvent_Purchase{
+				Purchase: &protos.PurchaseCloudEvent{
 					Id:          uuid.New().String(),
 					Source:      "producer",
 					SpecVersion: "1.0",
-					Type:        generated.PurchaseCloudEvent_EXAMPLE_CUSTOMER_PURCHASE,
+					Type:        protos.PurchaseCloudEvent_EXAMPLE_CUSTOMER_PURCHASE,
 					Time:        timestamppb.Now(),
-					Data: &generated.PurchaseCloudEvent_Data{
+					Data: &protos.PurchaseCloudEvent_Data{
 						CustomerId: "customer1",
 						Amount:     1.0,
 					},
