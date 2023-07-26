@@ -14,7 +14,7 @@ import (
 )
 
 type KafkaHandler interface {
-	HandleCustomerEvent(event protos.CustomerCloudEvent);
+	HandleCustomerEvent(event *protos.CustomerCloudEvent);
 	StartConsuming()
 }
 
@@ -22,7 +22,7 @@ type KafkaHandlerImpl struct {
 	store *store.Store
 }
 
-func (handler KafkaHandlerImpl) HandleCustomerEvent(event protos.CustomerCloudEvent) {
+func (handler KafkaHandlerImpl) HandleCustomerEvent(event *protos.CustomerCloudEvent) {
 	fmt.Println("Received message: ", event.Payload)
 	fmt.Println("Store: ", handler.store)
 	fmt.Printf("Received message: %v\n", event.Payload)
@@ -73,7 +73,7 @@ func (handler KafkaHandlerImpl) StartConsuming() {
 		}
 		var customerEvent protos.CustomerCloudEvent
 		proto.Unmarshal(m.Value, &customerEvent)
-		handler.HandleCustomerEvent(customerEvent)
+		handler.HandleCustomerEvent(&customerEvent)
 	}
 
 }

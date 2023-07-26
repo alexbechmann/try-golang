@@ -23,15 +23,9 @@ func main() {
 
 	utils.DoSomething()
 
-	// kafka_utils.StartConsuming()
-	// graph := container.InitializeInjector()
-	// store = graph.
-	// store.Init()
 	fx.New(
 		fx.Provide(store.StoreProvider),
 		fx.Provide(kafka_utils.KakfaHandlerProvider),
-		// fx.Provide(fx.Annotate(store.StoreProvider, fx.As(new(store.Store)))),
-		// fx.Provide(fx.Annotate(kafka_utils.KakfaHandlerProvider, fx.As(new(kafka_utils.KafkaHandler)))),
 		fx.Invoke(func (store store.Store, handler kafka_utils.KafkaHandler) {
 			store.Connect()
 			handler.StartConsuming()

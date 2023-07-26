@@ -1,5 +1,5 @@
 dev:
-	npx nodemon --exec "go run ./main.go" --ext go -w ./ -w ../../libs/utils/
+	npx nodemon --exec "dlv --listen=:2345 --headless --log  --continue --accept-multiclient --api-version=2 debug ./main.go" --ext go -w ./ -w ../../libs/utils/
 
 test: 
 	go test -v ./do
