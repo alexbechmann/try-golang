@@ -8,16 +8,20 @@ import (
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+
+	"try-golang/utils/protos"
 )
 
 type Store interface {
 	TestConnection()
 	Connect()
+	SavePurchase(purchase_event *protos.CustomerCloudEvent) bool
 }
 
 type StoreImpl struct {
-	balancesCollection *mongo.Collection 
-	database *mongo.Database
+	balancesCollection *mongo.Collection
+	database           *mongo.Database
+	isConnected        bool
 }
 
 func (store *StoreImpl) TestConnection() {
@@ -40,12 +44,20 @@ func (store *StoreImpl) Connect() {
 	balancesCollection := database.Collection("balances")
 	store.database = database
 	store.balancesCollection = balancesCollection
+	store.isConnected = true
 	fmt.Println("Connected to MongoDB!")
+}
+
+func (store *StoreImpl) SavePurchase(purchase_event *protos.CustomerCloudEvent) bool {
+	fmt.Println("Save purchase")
+	fmt.Println("Connected: ", store.isConnected)
+	fmt.Println(purchase_event)
+	return true
 }
 
 func StoreProvider() Store {
 	return &StoreImpl{
 		balancesCollection: nil,
-		database: nil,
+		database:           nil,
 	}
 }

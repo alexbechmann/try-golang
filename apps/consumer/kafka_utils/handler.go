@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"strings"
+
 	"try-golang/consumer/store"
 	"try-golang/utils/protos"
 
@@ -14,12 +15,12 @@ import (
 )
 
 type KafkaHandler interface {
-	HandleCustomerEvent(event *protos.CustomerCloudEvent);
+	HandleCustomerEvent(event *protos.CustomerCloudEvent)
 	StartConsuming()
 }
 
 type KafkaHandlerImpl struct {
-	store *store.Store
+	store store.Store
 }
 
 func (handler KafkaHandlerImpl) HandleCustomerEvent(event *protos.CustomerCloudEvent) {
@@ -31,6 +32,7 @@ func (handler KafkaHandlerImpl) HandleCustomerEvent(event *protos.CustomerCloudE
 		{
 			purchase := event.GetPurchase()
 			fmt.Printf("Received purchase message with id: %v\n", purchase.Id)
+			handler.store.SavePurchase(event)
 			break
 		}
 
@@ -75,10 +77,10 @@ func (handler KafkaHandlerImpl) StartConsuming() {
 		proto.Unmarshal(m.Value, &customerEvent)
 		handler.HandleCustomerEvent(&customerEvent)
 	}
-
 }
+
 func KakfaHandlerProvider(store store.Store) KafkaHandler {
 	return &KafkaHandlerImpl{
-		store: &store,
+		store: store,
 	}
 }
