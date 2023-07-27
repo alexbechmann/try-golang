@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
@@ -15,7 +17,7 @@ import (
 type Store interface {
 	TestConnection()
 	Connect()
-	SavePurchase(purchase_event *protos.CustomerCloudEvent) bool
+	SavePurchase(purchase_event *protos.PurchaseCloudEvent) bool
 }
 
 type StoreImpl struct {
@@ -48,10 +50,23 @@ func (store *StoreImpl) Connect() {
 	fmt.Println("Connected to MongoDB!")
 }
 
-func (store *StoreImpl) SavePurchase(purchase_event *protos.CustomerCloudEvent) bool {
-	fmt.Println("Save purchase")
+func (store *StoreImpl) SavePurchase(purchaseEvent *protos.PurchaseCloudEvent) bool {
+	fmt.Println("Save purchase with amount: ", purchaseEvent.Data.Amount)
 	fmt.Println("Connected: ", store.isConnected)
-	fmt.Println(purchase_event)
+	opts := options.Update().SetUpsert(true)
+	filter := bson.M{"customerId": purchaseEvent.Data.CustomerId}
+	update := bson.M{
+		"$inc": bson.M{"amount": int64(purchaseEvent.Data.Amount)},
+		"$set": bson.M{"updatedAt": time.Now().UTC()},
+	}
+	result, err := store.balancesCollection.UpdateOne(context.Background(), filter, update, opts)
+	if err != nil {
+		fmt.Println("Error updating document:", err)
+		return false
+	}
+
+	fmt.Println("Matched count:", result.MatchedCount)
+	fmt.Println("Modified count:", result.ModifiedCount)
 	return true
 }
 

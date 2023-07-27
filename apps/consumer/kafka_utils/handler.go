@@ -32,7 +32,7 @@ func (handler KafkaHandlerImpl) HandleCustomerEvent(event *protos.CustomerCloudE
 		{
 			purchase := event.GetPurchase()
 			fmt.Printf("Received purchase message with id: %v\n", purchase.Id)
-			handler.store.SavePurchase(event)
+			handler.store.SavePurchase(purchase)
 			break
 		}
 
