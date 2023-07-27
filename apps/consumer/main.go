@@ -5,9 +5,11 @@ import (
 	"time"
 
 	"try-golang/consumer/kafka_utils"
+	"try-golang/consumer/store"
 	"try-golang/utils"
-)
 
+	"go.uber.org/fx"
+)
 func main() {
 	items := [2]string{
 		"a", "b",
@@ -21,5 +23,12 @@ func main() {
 
 	utils.DoSomething()
 
-	kafka_utils.StartConsuming()
+	fx.New(
+		fx.Provide(store.StoreProvider),
+		fx.Provide(kafka_utils.KakfaHandlerProvider),
+		fx.Invoke(func (store store.Store, handler kafka_utils.KafkaHandler) {
+			store.Connect()
+			handler.StartConsuming()
+		}),
+	).Run()
 }

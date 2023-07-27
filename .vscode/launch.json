@@ -5,18 +5,38 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch producer",
+      "name": "producer-launch",
       "type": "go",
       "request": "launch",
       "mode": "auto",
       "program": "./apps/producer/main.go"
     },
     {
-      "name": "Launch consumer",
+      "remotePath": "${workspaceRoot}",
+      "name": "producer-attach",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      "port": 2345,
+      "host": "127.0.0.1",
+      "apiVersion": 2
+    },
+    {
+      "name": "consumer-launch",
       "type": "go",
       "request": "launch",
       "mode": "auto",
       "program": "./apps/consumer/main.go"
+    },
+    {
+      "remotePath": "${workspaceRoot}",
+      "name": "consumer-attach",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      "port": 2345,
+      "host": "127.0.0.1",
+      "apiVersion": 2
     }
   ]
 }
