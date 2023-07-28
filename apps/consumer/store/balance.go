@@ -7,8 +7,8 @@ import (
 )
 
 type Balance struct {
-	Id       primitive.ObjectID `bson:"_id,omitempty"`
-	UpdatedAt time.Time          `bson:"updatedAt,omitempty"`
+	Id         primitive.ObjectID `bson:"_id,omitempty"`
+	UpdatedAt  time.Time          `bson:"updatedAt,omitempty"`
 	CustomerId string             `bson:"customerId,omitempty"`
-	Balance float64            `bson:"balance,omitempty"`
+	Balance    float64            `bson:"balance,omitempty"`
 }
