@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"time"
 
-	"try-golang/consumer/kafka_utils"
+	"try-golang/consumer/kafkahandler"
 	"try-golang/consumer/store"
 	"try-golang/utils"
 
 	"go.uber.org/fx"
 )
+
 func main() {
 	items := [2]string{
 		"a", "b",
@@ -25,8 +26,8 @@ func main() {
 
 	fx.New(
 		fx.Provide(store.StoreProvider),
-		fx.Provide(kafka_utils.KakfaHandlerProvider),
-		fx.Invoke(func (store store.Store, handler kafka_utils.KafkaHandler) {
+		fx.Provide(kafkahandler.KakfaHandlerProvider),
+		fx.Invoke(func(store store.Store, handler kafkahandler.KafkaHandler) {
 			store.Connect()
 			handler.StartConsuming()
 		}),

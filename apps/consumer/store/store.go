@@ -64,7 +64,6 @@ func (store *StoreImpl) SavePurchase(purchaseEvent *protos.PurchaseCloudEvent) b
 		fmt.Println("Error updating document:", err)
 		return false
 	}
-
 	fmt.Println("Matched count:", result.MatchedCount)
 	fmt.Println("Modified count:", result.ModifiedCount)
 	return true

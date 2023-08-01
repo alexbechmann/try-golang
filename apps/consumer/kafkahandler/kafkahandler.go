@@ -1,4 +1,4 @@
-package kafka_utils
+package kafkahandler
 
 import (
 	"context"
