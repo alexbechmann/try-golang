@@ -1,4 +1,7 @@
 dev:
+	npx nodemon --signal SIGTERM --exec "go run ./main.go" --ext go -w ./ -w ../../libs/utils/
+
+dev-debug:
 	npx nodemon --signal SIGTERM --exec "dlv --listen=:2345 --headless --log  --continue --accept-multiclient --api-version=2 debug ./main.go --output ./debug/__debug__" --ext go -w ./ -w ../../libs/utils/ 
 
 test: mockgen
