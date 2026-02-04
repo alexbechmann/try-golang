@@ -5,6 +5,7 @@ test: mockgen
 	go test -v ./do
 
 mockgen:
-	# go install go.uber.org/mock/mockgen@latest
+	go install go.uber.org/mock/mockgen@v0.4.0
+	mkdir -p ./testutils
 	mockgen -package=testutils -source=./kafkahandler/kafkahandler.go > ./testutils/kafkahandler_mocks.go 
 	mockgen -package=testutils  -source=./store/store.go > ./testutils/store_mocks.go
