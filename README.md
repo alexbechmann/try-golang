@@ -1,6 +1,6 @@
 # Try Golang
 
-<a href='https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=git@github.com:alexbechmann/vtry-golang.git'><img src='https://img.shields.io/static/v1?label&message=Open%20in%20Dev%20Container&logo=visualstudiocode' alt='Open in Dev Container' height="32"></a>
+<a href='https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=git@github.com:alexbechmann/try-golang.git'><img src='https://img.shields.io/static/v1?label&message=Open%20in%20Dev%20Container&logo=visualstudiocode' alt='Open in Dev Container' height="32"></a>
 
 ## Development
 
